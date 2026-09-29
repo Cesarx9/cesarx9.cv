@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cesarx9.CV / PS4</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+  <header class="top-bar">
+    <div class="logo">
+      CESARX9.CV<span>/PS4</span>
+    </div>
+    <div class="top-icons">
+      <i class="fa-solid font-icon fa-newspaper"></i>
+      <i class="fa-solid font-icon fa-gear"></i>
+      <i class="fa-solid font-icon fa-share-nodes"></i>
+      <i class="fa-solid font-icon fa-play"></i>
+      <!--      <div class="avatar-small">
+        <img src="/assets/avatar.png" alt="avatar">
+      </div>-->
+    </div>
+  </header>
+
+  <main class="main-layout">
+    <section class="hero-section">
+      <div class="decor star-left"><i class="fa-solid fa-star"></i></div>
+      <div class="decor star-right"><i class="fa-solid fa-star"></i></div>
+      <div class="decor dpad-left"><i class="fa-solid fa-gamepad"></i></div>
+      <div class="decor dpad-right"><i class="fa-solid fa-gamepad"></i></div>
+
+      <div class="mascot-container">
+        <img src="/assets/avatar.png" alt="x9" class="mascot-img">
+      </div>
+
+      <h1 class="hero-title">¡Cesarx9 - PS4 lounge!</h1>
+
+      <div class="action-buttons-bar">
+        <a href="guides/index.html" class="nav-btn">
+          <i class="fa-solid fa-book-open"></i>
+          <span>GUÍAS</span>
+        </a>
+        <a href="#recursos" class="nav-btn">
+          <i class="fa-solid fa-wrench"></i>
+          <span>RECURSOS</span>
+        </a>
+        <a href="https://ko-fi.com/cesarx9" class="nav-btn btn-kofi">
+          <i class="fa-solid fa-heart"></i>
+          <div class="btn-text">
+            <span class="btn-title">KO-FI</span>
+            <span class="btn-subtitle">(APOYA EL CANAL)</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="resources-section">
+      <div class="resources-container">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="search-input" placeholder="Buscar juego por nombre (ej. Plague)...">
+        </div>
+
+        <div class="pkg-grid" id="pkg-grid">
+
+        </div>
+
+      </div>
+
+      <a href="https://ko-fi.com/cesarx9" target="_blank" class="kofi-banner-card">
+        <i class="fa-solid fa-heart kofi-icon"></i>
+        <h3>APOYA EN KO-FI</h3>
+      </a>
+    </section>
+  </main>
+  <script src="games.js"></script>
+  <script src="script.js"></script>
+  <div id="links-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h3 id="modal-title">GAME [USA]</h3>
+      <p class="modal-subtitle">Enlaces de descarga disponibles:</p>
+
+      <div class="links-list">
+        <a href="#" class="download-link" target="_blank">
+          <i class="fa-solid fa-download"></i> Servidor 1 (Archive Org)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <!--p>© 2026 CESARX9.CV - Todos los derechos reservados.</p-->
+  </footer>
+</body>
+
+</html>
