@@ -6,4 +6,4 @@ venv/
 Thumbs.db
 .vscode/
 __pycache__/
-*.pkg
+
