@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cesarx9.CV / PS4 / RECURSOS</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="top-bar">
+    <div class="logo">
+      <a href="../../index.html" style="color: inherit; text-decoration: none;">CESARX9.CV<span>/PS4</span></a>
+    </div>
+    <div class="top-icons">
+      <a href="../../index.html" class="font-icon" title="Volver al Inicio"><i class="fa-solid fa-house"></i></a>
+    </div>
+  </header>
+
+  <main class="main-layout">
+    <!-- Banner de Recursos -->
+    <section class="hero-section">
+      <h1 class="hero-title">RECURSOS PS4</h1>
+      <p style="color: #8a9ba8; margin-top: -15px; margin-bottom: 20px;">Herramientas esenciales, homebrew y archivos PKG para tu consola</p>
+    </section>
+
+    <!-- Contenedor Principal de Recursos -->
+    <section class="resources-container">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="search-guides" placeholder="Buscar herramienta (ej. RPI, Explorer)...">
+      </div>
+
+      <div class="guides-grid" id="guides-grid">
+        <!-- Se generan dinámicamente desde recursos.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>2026 - Cesarx9.cv</p>
+  </footer>
+
+  <!-- Archivo de datos -->
+  <script src="recursos.js"></script>
+
+  <!-- Lógica de renderizado y búsqueda -->
+  <script>
+    function renderRecursos(lista) {
+        const grid = document.getElementById('guides-grid');
+        grid.innerHTML = '';
+
+        if (lista.length === 0) {
+            grid.innerHTML = '<p style="color: #8a9ba8; grid-column: 1/-1; text-align: center;">No se encontraron recursos.</p>';
+            return;
+        }
+
+        lista.forEach(item => {
+            const card = document.createElement('div');
+            card.className = 'guide-card'; 
+
+            // Generamos los botones de descarga para cada espejo disponible
+            let mirrorsHtml = item.mirrors.map(m => `
+                <a href="${m.url}" class="download-btn" target="_blank" style="display: inline-block; margin-top: 8px; margin-right: 5px; background: #238636; color: #fff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: bold; transition: background 0.2s;">
+                    <i class="fa-solid fa-download"></i> ${m.server} (${m.size})
+                </a>
+            `).join('');
+
+            card.innerHTML = `
+                <div style="padding: 20px;">
+                    <span style="background: #1f6feb; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem;">${item.category} v${item.version}</span>
+                    <h3 style="color: #f0f6fc; margin: 10px 0 8px 0; font-family: 'Chakra Petch', sans-serif;">${item.title}</h3>
+                    <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px; line-height: 1.4;">${item.description}</p>
+                    <div class="mirrors-container">
+                        ${mirrorsHtml}
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // Renderizado inicial al cargar
+    renderRecursos(recursos);
+
+    // Buscador en tiempo real
+    document.getElementById('search-guides').addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase();
+        const filtrados = recursos.filter(r => 
+            r.title.toLowerCase().includes(query) || 
+            r.category.toLowerCase().includes(query) ||
+            r.description.toLowerCase().includes(query)
+        );
+        renderRecursos(filtrados);
+    });
+  </script>
+
+</body>
+
+</html>
