@@ -36,8 +36,8 @@
     <!-- Contenedor Principal de Recursos -->
     <section class="resources-container">
       <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="search-guides" placeholder="Buscar herramienta (ej. RPI, Explorer)...">
+        <!--i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <<input type="text" id="search-guides" placeholder="Buscar herramienta (ej. RPI, Explorer)..."-->
       </div>
 
       <div class="guides-grid" id="guides-grid">
@@ -93,15 +93,15 @@
     renderRecursos(recursos);
 
     // Buscador en tiempo real
-    document.getElementById('search-guides').addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase();
-        const filtrados = recursos.filter(r => 
-            r.title.toLowerCase().includes(query) || 
-            r.category.toLowerCase().includes(query) ||
-            r.description.toLowerCase().includes(query)
-        );
-        renderRecursos(filtrados);
-    });
+    // document.getElementById('search-guides').addEventListener('input', (e) => {
+    //     const query = e.target.value.toLowerCase();
+    //     const filtrados = recursos.filter(r => 
+    //         r.title.toLowerCase().includes(query) || 
+    //         r.category.toLowerCase().includes(query) ||
+    //         r.description.toLowerCase().includes(query)
+    //     );
+    //     renderRecursos(filtrados);
+    // });
   </script>
 
 </body>

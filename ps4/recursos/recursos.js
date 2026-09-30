@@ -10,7 +10,7 @@ const recursos = [
             {
                 server: "Local",
                 url: "pkg/PS4_FLTZ00003_v1.02.pkg",
-                size: "15 MB",
+                size: "4.2 MB",
                 status: "online"
             }
         ]
