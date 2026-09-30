@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (savedIP && ps4IpInput) ps4IpInput.value = savedIP;
   if (savedPort && ps4PortInput) ps4PortInput.value = savedPort;
+  if (searchInput) searchInput.value = '';
 
   function attachModalEvents() {
     document.querySelectorAll('.btn-link').forEach(btn => {
