@@ -9,7 +9,7 @@ const recursos = [
         mirrors: [
             {
                 server: "Local",
-                url: "pkg/PS4_FLTZ0003_v1.02.pkg",
+                url: "pkg/PS4_FLTZ00003_v1.02.pkg",
                 size: "15 MB",
                 status: "online"
             }
