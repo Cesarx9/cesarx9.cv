@@ -75,21 +75,44 @@
       </a>
     </section>
   </main>
+
   <script src="games.js"></script>
   <script src="script.js"></script>
-  <div id="links-modal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close" id="modal-close">&times;</button>
-      <h3 id="modal-title">GAME [USA]</h3>
-      <p class="modal-subtitle">Enlaces de descarga disponibles:</p>
 
-      <div class="links-list">
-        <a href="#" class="download-link" target="_blank">
-          <i class="fa-solid fa-download"></i> Servidor 1 (Archive Org)
-        </a>
+  <!-- Modal con Pestañas (Juego - Update - DLCs) -->
+  <div id="links-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 550px;">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <h3 id="modal-title" style="margin-bottom: 5px;">GAME [USA]</h3>
+      <p class="modal-subtitle" style="margin-bottom: 12px;">Enlaces de descarga y complementos:</p>
+
+      <!-- Pestañas del Modal -->
+      <div class="modal-tabs"
+        style="display: flex; gap: 8px; border-bottom: 1px solid #30363d; padding-bottom: 8px; margin-bottom: 12px;">
+        <button class="tab-btn active" data-tab="tab-game"
+          style="background: #1f6feb; color: #fff; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85rem;">Juego</button>
+        <button class="tab-btn" data-tab="tab-update"
+          style="background: #21262d; color: #8b949e; border: 1px solid #30363d; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85rem;">Update</button>
+        <button class="tab-btn" data-tab="tab-dlcs"
+          style="background: #21262d; color: #8b949e; border: 1px solid #30363d; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.85rem;">DLCs</button>
       </div>
+
+      <!-- Contenedores de las Pestañas -->
+      <div id="tab-game" class="tab-pane active-pane">
+        <div id="mirrors-container" style="max-height: 180px; overflow-y: auto; margin-bottom: 12px;"></div>
+      </div>
+
+      <div id="tab-update" class="tab-pane" style="display: none;">
+        <div id="updates-container" style="max-height: 180px; overflow-y: auto; margin-bottom: 12px;"></div>
+      </div>
+
+      <div id="tab-dlcs" class="tab-pane" style="display: none;">
+        <div id="dlcs-container" style="max-height: 180px; overflow-y: auto; margin-bottom: 12px;"></div>
+      </div>
+
+      <!-- Sección RPI (Compartida) -->
       <div class="rpi-container"
-        style="margin-top: 15px; background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px;">
+        style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 6px; border: 1px solid #30363d;">
         <div style="display: flex; gap: 10px; margin-bottom: 10px;">
           <div style="flex: 3;">
             <label for="ps4-ip" style="display:block; font-size: 0.8rem; margin-bottom: 4px; color: #ccc;">IP de la
@@ -105,7 +128,7 @@
           </div>
         </div>
 
-        <button id="btn-rpi-install" onclick="installViaRPI('https://url-del-pkg.com/game.pkg')"
+        <button id="btn-rpi-install"
           style="background-color: #28a745; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold;">
           🚀 Instalar Directo en PS4
         </button>

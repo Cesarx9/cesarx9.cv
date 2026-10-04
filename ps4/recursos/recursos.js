@@ -15,6 +15,38 @@ const recursos = [
             }
         ]
     },
+    {
+        id: "APOL00004",
+        title: "Apollo Save Tool",
+        version: "2.2.4",
+        category: "Utilidad PS4",
+        description: "Esta aplicación *homebrew* te permite descargar, desbloquear, parchear y volver a firmar archivos de partidas guardadas directamente en tu PS4.",
+        cover: "https://iili.io/KoFptuR.md.png",
+        mirrors: [
+            {
+                server: "Local",
+                url: "pkg/IV0000-APOL00004_00-APOLLO0000000PS4.pkg",
+                size: "16.44 MB",
+                status: "online"
+            }
+        ]
+    },
+    {
+        id: "LAPY20015",
+        title: "PS4 Avatar Changer",
+        version: "1.02",
+        category: "Utilidad PS4",
+        description: "Aplicación imprescindible en la PS4 para el manejo de imagenes de usuario.",
+        cover: "https://iili.io/KzBVUqN.png",
+        mirrors: [
+            {
+                server: "Local",
+                url: "pkg/PS4_LAPY20015_v1.02.pkg",
+                size: "52.3 MB",
+                status: "online"
+            }
+        ]
+    },
     // {
     //     id: "ps4-file-explorer",
     //     title: "PS4 File Explorer",
