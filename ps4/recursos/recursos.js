@@ -42,7 +42,7 @@ const recursos = [
             {
                 server: "Local",
                 url: "pkg/PS4_LAPY20015_v1.02.pkg",
-                size: "52.3 MB",
+                size: "52.25 MB",
                 status: "online"
             }
         ]

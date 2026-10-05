@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
       e.currentTarget.classList.add('active');
       e.currentTarget.style.background = '#1f6feb';
       e.currentTarget.style.color = '#fff';
-
+      
       const pane = document.getElementById(targetTab);
       if (pane) pane.style.display = 'block';
     });
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // 3. Pestaña DLCS (dlcUrl array)
           if (dlcsContainer) {
             if (game.dlcUrl && game.dlcUrl.length > 0 && !game.dlcUrl[0].includes('placeholder.com')) {
-              dlcsContainer.innerHTML = '';
+              dlcsContainer.innerHTML = ''; 
               game.dlcUrl.forEach((dlcLink, idx) => {
                 const dlcName = `DLC #${idx + 1}`;
                 dlcsContainer.innerHTML += `
@@ -227,6 +227,38 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.target === modal) modal.classList.remove('active');
     });
   }
+
+  // --- CONTADOR EN VIVO: GUITAR HERO SESSIONS (24 de Octubre a las 6:00 PM) ---
+  const eventDate = new Date('October 24, 2026 18:00:00').getTime();
+
+  const timerInterval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    if (distance < 0) {
+      clearInterval(timerInterval);
+      const container = document.getElementById('event-countdown');
+      if (container) {
+        container.innerHTML = '<div style="color: #2ecc71; font-weight: bold; font-size: 0.9rem;"><i class="fa-solid fa-fire"></i> ¡El evento Guitar Hero Sessions ha comenzado!</div>';
+      }
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+
+    if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+    if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+    if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+    if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+  }, 1000);
 });
 
 function installViaRPI(pkgUrl) {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +11,46 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header class="top-bar">
         <div class="logo">
             CESARX9.CV<span>/HUB</span>
         </div>
     </header>
+
+    <!-- Barra de Countdown de Guitar Hero Sessions -->
+    <div id="event-countdown"
+        style="background: #0d1117; border-bottom: 1px solid #30363d; padding: 10px 20px; text-align: center; font-family: 'Chakra Petch', sans-serif;">
+        <div
+            style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px;">
+            <span
+                style="color: #f0f6fc; font-size: 0.9rem; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+                <i class="fa-solid fa-guitar" style="color: #ff007f;"></i> GUITAR HERO SESSIONS:
+            </span>
+            <div id="countdown-timer" style="display: flex; gap: 10px; font-size: 0.85rem; color: #8b949e;">
+                <div><span id="days" style="color: #38bdf8; font-weight: bold; font-size: 1rem;">00</span> Días</div>
+                <div><span id="hours" style="color: #38bdf8; font-weight: bold; font-size: 1rem;">00</span> Hrs</div>
+                <div><span id="minutes" style="color: #38bdf8; font-weight: bold; font-size: 1rem;">00</span> Min</div>
+                <div><span id="seconds" style="color: #ff007f; font-weight: bold; font-size: 1rem;">00</span> Seg</div>
+            </div>
+            <a href="https://www.facebook.com/photo/?fbid=1701680465297062&set=a.440817998049988" target="_blank"
+                style="background: #21262d; color: #c9d1d9; border: 1px solid #30363d; padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; text-decoration: none; transition: 0.2s;">
+                ¡Falta poco! 🎸
+            </a>
+        </div>
+    </div>
+
     <main class="main-layout">
         <section class="hero-section">
             <div class="mascot-container">
                 <img src="https://api.iconify.design/emojione-v1:crocodile.svg" alt="Croc Mascot" class="mascot-img">
             </div>
             <h1 class="hero-title">SELECCIONA TU PLATAFORMA</h1>
-            <p style="color: #8a9ba8; margin-top: -15px; margin-bottom: 30px;">Recursos, PKGs, ROMs y Guías organizados por consola</p>
+            <p style="color: #8a9ba8; margin-top: -15px; margin-bottom: 30px;">Recursos, PKGs, ROMs y Guías organizados
+                por consola</p>
         </section>
+
         <div class="systems-grid">
             <!-- PS4 -->
             <a href="ps4/index.html" class="system-card ps4-card">
@@ -36,6 +63,7 @@
                 </div>
                 <span class="system-status active-status">ONLINE</span>
             </a>
+
             <!-- PS5 -->
             <a href="#" class="system-card ps5-card">
                 <div class="system-icon">
@@ -47,6 +75,7 @@
                 </div>
                 <span class="system-status coming-status">PRÓXIMAMENTE</span>
             </a>
+
             <!-- Xbox 360 -->
             <a href="#" class="system-card x360-card">
                 <div class="system-icon">
@@ -60,8 +89,48 @@
             </a>
         </div>
     </main>
+
     <footer class="site-footer">
         <p>2026 - Cesarx9.cv</p>
     </footer>
+
+    <!-- Script del Contador (Asegúrate de tener también este bloque de JS al final o en tu archivo de script principal) -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const eventDate = new Date(2026, 9, 24, 18, 0, 0).getTime();
+
+        function actualizarContador() {
+          const now = new Date().getTime();
+          const distance = eventDate - now;
+          const container = document.getElementById('event-countdown');
+
+          if (distance < 0) {
+            if (container) {
+              container.innerHTML = '<div style="color: #2ecc71; font-weight: bold; font-size: 0.9rem;"><i class="fa-solid fa-fire"></i> ¡El evento Guitar Hero Sessions ha comenzado!</div>';
+            }
+            return;
+          }
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          const daysEl = document.getElementById('days');
+          const hoursEl = document.getElementById('hours');
+          const minutesEl = document.getElementById('minutes');
+          const secondsEl = document.getElementById('seconds');
+
+          if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+          if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+          if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
+          if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
+        }
+
+        actualizarContador();
+        setInterval(actualizarContador, 1000);
+      });
+    </script>
 </body>
+
 </html>
